@@ -49,7 +49,7 @@ class MndRenderer:
 				self.__draw(k, v)
 
 	def __init__(self, data):
-		self.graph = pydot.Dot(graph_type='graph')
+		self.graph = pydot.Dot(graph_type='digraph')
 		self.__visit(data)
 
 	def write_png(self, out_file='out.png'):
