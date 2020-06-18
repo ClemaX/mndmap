@@ -59,9 +59,13 @@ class MndRenderer:
 if __name__ == '__main__':
 	ac = len(sys.argv)
 	if ac == 1 or ac > 3:
+		print(f"Usage: {sys.argv[0]} INPUT [OUTPUT]")
 		exit(1)
 	in_file = sys.argv[1]
 	out_file = sys.argv[2] if ac == 3 else 'out.png'
 	data = MndParser.parse(in_file)
+	if not data:
+		print("Invalid file!")
+		exit(1)
 	renderer = MndRenderer(data)
 	renderer.write_png(out_file)
